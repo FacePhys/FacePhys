@@ -1,5 +1,7 @@
 # FacePhys SDKs
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 FacePhys provides contactless physiological signal detection from face videos.
 This repository contains public SDK examples for integrating the FacePhys video
 detection API.
@@ -46,4 +48,3 @@ language examples, video requirements, and response field descriptions.
 Do not expose long-lived API secrets in public frontend code. For production
 browser integrations, call FacePhys from your own backend or issue short-lived,
 low-quota keys for controlled client-side use.
-

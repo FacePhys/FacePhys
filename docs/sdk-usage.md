@@ -1,5 +1,7 @@
 # FacePhys SDK Usage Guide
 
+[English](sdk-usage.md) | [简体中文](sdk-usage.zh-CN.md)
+
 This guide explains how to use the public FacePhys SDK files and how to read the
 video detection response.
 
@@ -258,4 +260,3 @@ Typical HTTP status codes:
 
 For transient `5xx` errors, retry with exponential backoff, for example 1s,
 2s, 4s, and 8s.
-
