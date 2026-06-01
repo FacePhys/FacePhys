@@ -38,11 +38,11 @@ SDK 会封装标准接入流程：
 3. 提交已上传的视频对象进行生理信号检测。
 4. 返回分组检测结果，例如心率、HRV、血压、血氧、情绪、行为、外观和计费字段。
 
-完整接入方式、鉴权说明、各语言示例、视频采集要求和返回结果说明，请查看
-[`docs/sdk-usage.zh-CN.md`](docs/sdk-usage.zh-CN.md)。
+完整接入方式、鉴权说明、各语言示例和视频采集要求，请查看
+[`docs/sdk-usage.zh-CN.md`](docs/sdk-usage.zh-CN.md)。完整返回字段定义请查看
+[`docs/response-fields.zh-CN.md`](docs/response-fields.zh-CN.md)。
 
 ## 安全说明
 
 不要在公开前端代码中暴露长期有效的 API Secret。生产环境浏览器接入建议通过自有后端
 调用 FacePhys，或为受控客户端签发短期、低额度的子密钥。
-

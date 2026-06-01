@@ -140,6 +140,8 @@ sequenceDiagram
 V3 检测接口返回分组 JSON。实际字段取决于 API Key 开通的字段集，因此接入方应当兼容
 部分模块缺失的情况。
 
+完整字段级说明请查看 [`response-fields.zh-CN.md`](response-fields.zh-CN.md)。
+
 示例响应：
 
 ```json
@@ -253,4 +255,3 @@ V3 检测接口返回分组 JSON。实际字段取决于 API Key 开通的字段
 | `504` | 处理超时 | 使用更短或质量更高的视频重试 |
 
 对于临时性 `5xx` 错误，建议使用指数退避重试，例如 1s、2s、4s、8s。
-

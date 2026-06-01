@@ -146,6 +146,9 @@ processing request uses the returned `objectKey`.
 The V3 detection endpoint returns grouped JSON. Actual fields depend on the API
 key's enabled field set, so integrations should handle optional modules.
 
+For the complete field-by-field reference, see
+[`response-fields.md`](response-fields.md).
+
 Example response:
 
 ```json

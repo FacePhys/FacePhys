@@ -41,7 +41,8 @@ The SDKs handle the standard integration flow:
    SpO2, emotion, behavior, appearance, and billing fields.
 
 See [`docs/sdk-usage.md`](docs/sdk-usage.md) for setup, authentication,
-language examples, video requirements, and response field descriptions.
+language examples, and video requirements. For full response field definitions,
+see [`docs/response-fields.md`](docs/response-fields.md).
 
 ## Security
 
