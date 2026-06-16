@@ -134,3 +134,6 @@ engine.release()
 Do not expose long-lived API secrets in public frontend code. For production
 browser integrations, call FacePhys from your own backend or issue short-lived,
 low-quota keys for controlled client-side use.
+
+
+[![Star History Chart](https://api.star-history.com/chart?repos=FacePhys/FacePhys&type=date&legend=top-left)](https://www.star-history.com/?repos=FacePhys%2FFacePhys&type=date&legend=bottom-right)

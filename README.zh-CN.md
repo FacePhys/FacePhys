@@ -129,3 +129,6 @@ engine.release()
 
 不要在公开前端代码中暴露长期有效的 API Secret。生产环境浏览器接入建议通过自有后端
 调用 FacePhys，或为受控客户端签发短期、低额度的子密钥。
+
+
+[![Star History Chart](https://api.star-history.com/chart?repos=FacePhys/FacePhys&type=date&legend=top-left)](https://www.star-history.com/?repos=FacePhys%2FFacePhys&type=date&legend=bottom-right)
