@@ -131,4 +131,10 @@ engine.release()
 调用 FacePhys，或为受控客户端签发短期、低额度的子密钥。
 
 
-[![Star History Chart](https://api.star-history.com/chart?repos=FacePhys/FacePhys&type=date&legend=top-left)](https://www.star-history.com/?repos=FacePhys%2FFacePhys&type=date&legend=bottom-right)
+<a href="https://www.star-history.com/?repos=FacePhys%2FFacePhys&type=date&legend=bottom-right">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=FacePhys/FacePhys&type=date&theme=dark&legend=bottom-right" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=FacePhys/FacePhys&type=date&legend=bottom-right" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=FacePhys/FacePhys&type=date&legend=bottom-right" />
+ </picture>
+</a>
