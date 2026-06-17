@@ -12,6 +12,7 @@ FacePhys 视频检测 API 的公开 SDK 示例和接入文档。
 | JavaScript | [`sdks/javascript/facephys-sdk.js`](sdks/javascript/facephys-sdk.js) | 支持 `fetch` 和 Web Crypto 的现代浏览器或运行时 |
 | Python | [`sdks/python/facephys_sdk.py`](sdks/python/facephys_sdk.py) | Python 3.8+，依赖 `requests` |
 | Java | [`sdks/java/FacePhysClient.java`](sdks/java/FacePhysClient.java) | Java 11+ |
+| Go | [`sdks/go/facephys.go`](sdks/go/facephys.go) | Go 1.21+ |
 | iOS | [`sdks/ios/RPPGIntegration.swift`](sdks/ios/RPPGIntegration.swift) | iOS 15+，Swift 5.9+（端侧 rPPG） |
 | Android | [`sdks/android/RppgIntegration.kt`](sdks/android/RppgIntegration.kt) | Android API 24+（端侧 rPPG） |
 

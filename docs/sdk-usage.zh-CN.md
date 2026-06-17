@@ -117,7 +117,49 @@ public class Demo {
 Java SDK 返回原始 JSON 字符串。你可以使用 Jackson、Gson 或业务框架内置的 JSON
 库进行解析。
 
-## 6. SDK 调用流程
+## 6. Go SDK
+
+将 [`sdks/go/facephys.go`](../sdks/go/facephys.go) 复制到 Go 项目中。该文件无外部
+依赖，要求 Go 1.21+。文件声明为 `package facephys`，可放入 `facephys/` 目录（或把
+package 名改成你自己的）后引用。
+
+```go
+package main
+
+import (
+	"context"
+	"errors"
+	"fmt"
+	"log"
+
+	"yourmodule/facephys"
+)
+
+func main() {
+	client := facephys.New("your-key-id", "your-secret-key")
+
+	result, err := client.ProcessVideo(context.Background(), "/path/to/video.mp4")
+	if err != nil {
+		var apiErr *facephys.Error
+		if errors.As(err, &apiErr) {
+			log.Fatalf("api error (status %d): %s", apiErr.StatusCode, apiErr.Message)
+		}
+		log.Fatal(err)
+	}
+
+	if c := result.Data.Cardiac; c != nil {
+		fmt.Printf("心率: %.1f BPM\n", c.HR)
+		fmt.Printf("信号质量: %.2f\n", c.SQI)
+	}
+}
+```
+
+`New` 支持 `WithBaseURL`、`WithCapability`、`WithTimeout`、`WithHTTPClient` 等可选项。
+`ProcessVideo` 返回类型化的 `*facephys.Result`，其中各模块字段（`Cardiac`、`BP`、
+`SpO2` ……）均为指针，模块缺失时为 `nil`；`Result.Raw` 保留完整原始 JSON，便于读取
+未建模的新增字段。API 调用失败时返回 `*facephys.Error`，其中携带 HTTP `StatusCode`。
+
+## 7. SDK 调用流程
 
 所有 SDK 都使用同一套流程：
 
@@ -135,7 +177,7 @@ sequenceDiagram
 
 上传步骤使用 FacePhys 返回的预签名 `uploadUrl`。最终处理请求使用返回的 `objectKey`。
 
-## 7. 返回结果结构
+## 8. 返回结果结构
 
 V3 检测接口返回分组 JSON。实际字段取决于 API Key 开通的字段集，因此接入方应当兼容
 部分模块缺失的情况。
@@ -239,7 +281,7 @@ V3 检测接口返回分组 JSON。实际字段取决于 API Key 开通的字段
 | `0.15 - 0.30` | 可作为参考 |
 | `< 0.15` | 建议重新采集视频 |
 
-## 8. 错误处理
+## 9. 错误处理
 
 常见 HTTP 状态码：
 
