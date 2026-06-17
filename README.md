@@ -13,6 +13,7 @@ detection API.
 | JavaScript | [`sdks/javascript/facephys-sdk.js`](sdks/javascript/facephys-sdk.js) | Modern browser or runtime with `fetch` and Web Crypto |
 | Python | [`sdks/python/facephys_sdk.py`](sdks/python/facephys_sdk.py) | Python 3.8+ with `requests` |
 | Java | [`sdks/java/FacePhysClient.java`](sdks/java/FacePhysClient.java) | Java 11+ |
+| Go | [`sdks/go/facephys.go`](sdks/go/facephys.go) | Go 1.21+ |
 | iOS | [`sdks/ios/RPPGIntegration.swift`](sdks/ios/RPPGIntegration.swift) | iOS 15+, Swift 5.9+ (on-device rPPG) |
 | Android | [`sdks/android/RppgIntegration.kt`](sdks/android/RppgIntegration.kt) | Android API 24+ (on-device rPPG) |
 

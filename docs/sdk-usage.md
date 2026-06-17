@@ -122,7 +122,52 @@ public class Demo {
 The Java SDK returns the raw JSON response string. Parse it with your preferred
 JSON library, such as Jackson, Gson, or your framework's built-in JSON support.
 
-## 6. SDK Flow
+## 6. Go SDK
+
+Copy [`sdks/go/facephys.go`](../sdks/go/facephys.go) into your Go project. It has
+no external dependencies and requires Go 1.21+. The file declares `package
+facephys`; place it in a `facephys/` directory (or rename the package to match
+your own) and import it.
+
+```go
+package main
+
+import (
+	"context"
+	"errors"
+	"fmt"
+	"log"
+
+	"yourmodule/facephys"
+)
+
+func main() {
+	client := facephys.New("your-key-id", "your-secret-key")
+
+	result, err := client.ProcessVideo(context.Background(), "/path/to/video.mp4")
+	if err != nil {
+		var apiErr *facephys.Error
+		if errors.As(err, &apiErr) {
+			log.Fatalf("api error (status %d): %s", apiErr.StatusCode, apiErr.Message)
+		}
+		log.Fatal(err)
+	}
+
+	if c := result.Data.Cardiac; c != nil {
+		fmt.Printf("Heart rate: %.1f BPM\n", c.HR)
+		fmt.Printf("Signal quality: %.2f\n", c.SQI)
+	}
+}
+```
+
+`New` accepts options such as `WithBaseURL`, `WithCapability`, `WithTimeout`, and
+`WithHTTPClient`. `ProcessVideo` returns a typed `*facephys.Result` whose module
+fields (`Cardiac`, `BP`, `SpO2`, ...) are pointers that stay `nil` when a module is
+absent; `Result.Raw` holds the complete original JSON for any fields not modeled.
+On a failed API call the SDK returns a `*facephys.Error` carrying the HTTP
+`StatusCode`.
+
+## 7. SDK Flow
 
 All SDKs use the same flow:
 
@@ -141,7 +186,7 @@ sequenceDiagram
 The upload step uses the presigned `uploadUrl` returned by FacePhys. The final
 processing request uses the returned `objectKey`.
 
-## 7. Response Shape
+## 8. Response Shape
 
 The V3 detection endpoint returns grouped JSON. Actual fields depend on the API
 key's enabled field set, so integrations should handle optional modules.
@@ -246,7 +291,7 @@ Signal quality guidance:
 | `0.15 - 0.30` | Usable as a reference |
 | `< 0.15` | Recollect the video if possible |
 
-## 8. Error Handling
+## 9. Error Handling
 
 Typical HTTP status codes:
 
